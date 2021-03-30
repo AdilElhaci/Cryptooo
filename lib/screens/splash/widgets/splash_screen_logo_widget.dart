@@ -1,10 +1,11 @@
+import 'package:cryptoo/core/constants/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-Widget logoContainer() {
+Widget logoContainer(double height, double width) {
   return SvgPicture.asset(
-    'assets/images/logo.svg',
-    height: 153,
-    width: 153,
+    ImageURL.LOGO,
+    height: height,
+    width: width,
   );
 }
