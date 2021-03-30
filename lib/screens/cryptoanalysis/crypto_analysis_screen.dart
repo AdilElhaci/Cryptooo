@@ -1,4 +1,5 @@
 import 'package:cryptoo/core/constants/icons_url.dart';
+import 'package:cryptoo/core/constants/images.dart';
 import 'package:cryptoo/core/constants/theme.dart';
 import 'package:cryptoo/screens/home/home_screen.dart';
 import 'package:cryptoo/screens/splash/widgets/splash_screen_title.dart';
@@ -116,11 +117,7 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
                     ),
                     Expanded(
                       flex: 3,
-                      child: Container(
-                          width: 50,
-                          height: 100,
-                          child: SvgPicture.asset(
-                              'assets/images/cryptoanlysis.svg')),
+                      child: Container(child: Image.asset(ImageURL.ANLYSIS)),
                     )
                   ],
                 ),

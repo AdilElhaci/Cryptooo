@@ -3,5 +3,5 @@ class ImageURL {
   static const ADALOGO = 'assets/images/ada.svg';
   static const CALCULATOR = 'assets/images/calculator.svg';
   static const ETHEREUM = 'assets/images/Ethereum.svg';
-  static const ANLYSIS = 'assets/images/anlysis.svg';
+  static const ANLYSIS = 'assets/images/cryptoanlysis.png';
 }
