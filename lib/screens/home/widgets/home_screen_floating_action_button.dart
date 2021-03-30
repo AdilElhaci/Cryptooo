@@ -1,8 +1,9 @@
 import 'package:cryptoo/core/constants/images.dart';
+import 'package:cryptoo/screens/calculator/calculator_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-Widget homePageFloatingActionButton() {
+Widget homePageFloatingActionButton(BuildContext context) {
   return Stack(
     clipBehavior: Clip.none,
     children: [
@@ -16,7 +17,12 @@ Widget homePageFloatingActionButton() {
               elevation: 0.0,
               child: SvgPicture.asset(ImageURL.CALCULATOR),
               backgroundColor: new Color(0xFFFF7A00),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CalculatorScreen()),
+                );
+              }),
         ),
       ),
     ],

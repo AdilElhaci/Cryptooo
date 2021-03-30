@@ -20,7 +20,7 @@ class _HomeSecreenState extends State<HomeSecreen> {
           children: [
             Expanded(flex: 3, child: PageTitleAndLogo()),
             Expanded(flex: 19, child: homePageCardList()),
-            Expanded(flex: 2, child: homePageFloatingActionButton())
+            Expanded(flex: 2, child: homePageFloatingActionButton(context))
           ],
         ),
       ),
