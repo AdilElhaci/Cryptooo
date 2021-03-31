@@ -18,7 +18,7 @@ class _HomeSecreenState extends State<HomeSecreen> {
         padding: EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
-            Expanded(flex: 3, child: PageTitleAndLogo()),
+            Expanded(flex: 3, child: pageTitleAndLogo()),
             Expanded(flex: 19, child: homePageCardList()),
             Expanded(flex: 2, child: homePageFloatingActionButton(context))
           ],

@@ -1,11 +1,9 @@
-import 'package:cryptoo/core/constants/icons_url.dart';
 import 'package:cryptoo/core/constants/theme.dart';
 import 'package:cryptoo/screens/calculator/widgets/calculator_screen_drop_button.dart';
+import 'package:cryptoo/screens/calculator/widgets/calculator_screen_go_back_icon.dart';
 import 'package:cryptoo/screens/calculator/widgets/calculator_screen_textfield.dart';
-import 'package:cryptoo/screens/home/home_screen.dart';
 import 'package:cryptoo/screens/splash/widgets/splash_screen_title.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CalculatorScreen extends StatefulWidget {
   @override
@@ -26,17 +24,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                 child: Container(
                   width: 60,
                   height: 60,
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeSecreen()),
-                      );
-                    },
-                    icon: SvgPicture.asset(
-                      IconURL.GOBACK,
-                    ),
-                  ),
+                  child: goToHomeScreenIcon(context),
                 )),
             Positioned(
               left: 83,
