@@ -15,39 +15,41 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ProjectThemes.MAINCOLOR,
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 20),
-        child: Stack(
-          children: [
-            Positioned(
-                left: 10,
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  child: goToHomeScreenIcon(context),
-                )),
-            Positioned(
-              left: 83,
-              child: pageTitle(36),
-            ),
-            Positioned(
-              top: 100,
-              left: 25,
-              child: CalculatorDropdownButton(),
-            ),
-            Positioned(
-                top: 239,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 20),
+          child: Stack(
+            children: [
+              Positioned(
+                  left: 10,
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    child: goToHomeScreenIcon(context),
+                  )),
+              Positioned(
+                left: 83,
+                child: pageTitle(36),
+              ),
+              Positioned(
+                top: 100,
                 left: 25,
-                child: buildPaddingCryptooTextField(context, '0', 'ADA')),
-            Positioned(
-                top: 338,
-                left: 25,
-                child: buildPaddingCryptooTextField(context, '0', 'USD')),
-            Positioned(
-                top: 440,
-                left: 25,
-                child: buildPaddingCryptooTextField(context, '0', 'TRY')),
-          ],
+                child: CalculatorDropdownButton(),
+              ),
+              Positioned(
+                  top: 239,
+                  left: 25,
+                  child: buildPaddingCryptooTextField(context, '0', 'ADA')),
+              Positioned(
+                  top: 338,
+                  left: 25,
+                  child: buildPaddingCryptooTextField(context, '0', 'USD')),
+              Positioned(
+                  top: 440,
+                  left: 25,
+                  child: buildPaddingCryptooTextField(context, '0', 'TRY')),
+            ],
+          ),
         ),
       ),
     );

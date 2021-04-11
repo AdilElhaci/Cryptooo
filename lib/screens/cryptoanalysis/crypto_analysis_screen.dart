@@ -15,37 +15,39 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ProjectThemes.MAINCOLOR,
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 20),
-        child: Stack(children: [
-          Positioned(
-              left: 10,
-              child: Container(
-                  width: 60, height: 60, child: goToHomeScreenIcon(context))),
-          Positioned(
-            left: 83,
-            child: pageTitle(36),
-          ),
-          Positioned(
-              left: 35,
-              top: 200,
-              child: Container(
-                height: 385,
-                width: 356,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Colors.white),
-                child: Column(
-                  children: [
-                    Expanded(flex: 2, child: cryptoCardContent()),
-                    Expanded(
-                      flex: 4,
-                      child: Container(child: Image.asset(ImageURL.ANLYSIS)),
-                    )
-                  ],
-                ),
-              ))
-        ]),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 20),
+          child: Stack(children: [
+            Positioned(
+                left: 10,
+                child: Container(
+                    width: 60, height: 60, child: goToHomeScreenIcon(context))),
+            Positioned(
+              left: 83,
+              child: pageTitle(36),
+            ),
+            Positioned(
+                left: 35,
+                top: 200,
+                child: Container(
+                  height: 385,
+                  width: 356,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      color: Colors.white),
+                  child: Column(
+                    children: [
+                      Expanded(flex: 2, child: cryptoCardContent()),
+                      Expanded(
+                        flex: 4,
+                        child: Container(child: Image.asset(ImageURL.ANLYSIS)),
+                      )
+                    ],
+                  ),
+                ))
+          ]),
+        ),
       ),
     );
   }
