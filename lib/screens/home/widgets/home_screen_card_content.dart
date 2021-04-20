@@ -10,10 +10,12 @@ Widget cryptoCardContent(CryptoModel crypto) {
       Expanded(
           flex: 1,
           child: SvgPicture.asset(
-            'assets/images/SVG/${crypto.symbol}.svg',
+            'assets/SVG/${crypto.symbol}.svg',
+            height: 60,
+            width: 50,
           )),
       Expanded(
-        flex: 1,
+        flex: 2,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -21,7 +23,7 @@ Widget cryptoCardContent(CryptoModel crypto) {
               crypto.name,
               style: GoogleFonts.spaceMono(
                   textStyle: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
                 color: Colors.black,
               )),
             ),

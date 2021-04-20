@@ -9,8 +9,6 @@ Future<List<CryptoModel>> getCryptoData() async {
 
   var jsonData = jsonDecode(response.body);
 
-  // print(jsonData.toString());
-
   List<CryptoModel> cryptoList = [];
   for (var u in jsonData['data']) {
     CryptoModel data = CryptoModel(
@@ -21,7 +19,6 @@ Future<List<CryptoModel>> getCryptoData() async {
       symbol: u['symbol'],
     );
     cryptoList.add(data);
-    print(data.toString());
   }
 
   return cryptoList;

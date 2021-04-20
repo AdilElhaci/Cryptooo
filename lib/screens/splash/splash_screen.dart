@@ -15,21 +15,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  List<CryptoModel> cryptoDataList = [];
-
-  getData() async {
-    cryptoDataList = await getCryptoData();
-    setState(() {});
-    print(cryptoDataList.length);
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getData();
-  }
-
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
@@ -44,9 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
           logoContainer(153, 153)
         ],
       ),
-      nextScreen: HomeSecreen(
-        datList: cryptoDataList,
-      ),
+      nextScreen: HomeSecreen(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'home_screen_crypto_card.dart';
 
 Widget homePageCardList(datList) {
+  print('home page card list');
   print(datList.length);
   return ListView.separated(
     itemCount: datList.length,
