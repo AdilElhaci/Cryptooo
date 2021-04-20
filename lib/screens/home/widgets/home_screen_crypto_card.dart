@@ -1,8 +1,9 @@
+import 'package:cryptoo/core/models/crypto.model.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen_card_content.dart';
 
-Widget cryptooCard() {
+Widget cryptooCard(CryptoModel crypto) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -10,6 +11,6 @@ Widget cryptooCard() {
     ),
     width: 356,
     height: 123,
-    child: cryptoCardContent(),
+    child: cryptoCardContent(crypto),
   );
 }

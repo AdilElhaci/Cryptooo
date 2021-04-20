@@ -1,5 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:cryptoo/core/constants/theme.dart';
+import 'package:cryptoo/core/models/crypto.model.dart';
+import 'package:cryptoo/core/service/api.dart';
 import 'package:cryptoo/screens/home/home_screen.dart';
 import 'package:cryptoo/screens/splash/widgets/splash_screen_title.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,21 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  List<CryptoModel> cryptoDataList = [];
+
+  getData() async {
+    cryptoDataList = await getCryptoData();
+    setState(() {});
+    print(cryptoDataList.length);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
@@ -27,7 +44,9 @@ class _SplashScreenState extends State<SplashScreen> {
           logoContainer(153, 153)
         ],
       ),
-      nextScreen: HomeSecreen(),
+      nextScreen: HomeSecreen(
+        datList: cryptoDataList,
+      ),
     );
   }
 }

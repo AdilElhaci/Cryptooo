@@ -1,15 +1,16 @@
+import 'package:cryptoo/core/models/crypto.model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Widget cryptoCardContent() {
+Widget cryptoCardContent(CryptoModel crypto) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
       Expanded(
           flex: 1,
           child: SvgPicture.asset(
-            'assets/images/ada.svg',
+            'assets/images/SVG/${crypto.symbol}.svg',
           )),
       Expanded(
         flex: 1,
@@ -17,7 +18,7 @@ Widget cryptoCardContent() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'ADA',
+              crypto.name,
               style: GoogleFonts.spaceMono(
                   textStyle: TextStyle(
                 fontSize: 24,
@@ -28,7 +29,7 @@ Widget cryptoCardContent() {
               height: 10,
             ),
             Text(
-              '10,000',
+              crypto.priceUsd.toInt().toString(),
               style: GoogleFonts.spaceMono(
                   textStyle: TextStyle(
                 fontSize: 18,

@@ -38,7 +38,7 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
                       color: Colors.white),
                   child: Column(
                     children: [
-                      Expanded(flex: 2, child: cryptoCardContent()),
+                      Expanded(flex: 2, child: cryptoCardContent(null)),
                       Expanded(
                         flex: 4,
                         child: Container(child: Image.asset(ImageURL.ANLYSIS)),

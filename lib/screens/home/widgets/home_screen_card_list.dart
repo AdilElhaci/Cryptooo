@@ -2,9 +2,10 @@ import 'package:cryptoo/screens/cryptoanalysis/crypto_analysis_screen.dart';
 import 'package:flutter/material.dart';
 import 'home_screen_crypto_card.dart';
 
-Widget homePageCardList() {
+Widget homePageCardList(datList) {
+  print(datList.length);
   return ListView.separated(
-    itemCount: 4,
+    itemCount: datList.length,
     separatorBuilder: (BuildContext context, int index) => SizedBox(
       height: 35,
     ),
@@ -18,7 +19,7 @@ Widget homePageCardList() {
               MaterialPageRoute(builder: (context) => CryptoAnalysisScreen()),
             );
           },
-          child: cryptooCard(),
+          child: cryptooCard(datList[index]),
         ),
       );
     },

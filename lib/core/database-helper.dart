@@ -32,11 +32,7 @@ class DatabaseHelper {
     _database ??= await _initialDatabase();
 
     if (_database != null) {
-      int dbVersion = await _database.getVersion();
-      if (dbVersion != 3) {
-        print('database version has been changed');
-        _database = await _initialDatabase();
-      }
+      _database = await _initialDatabase();
     }
 
     return _database;
@@ -47,7 +43,7 @@ class DatabaseHelper {
     // Directory directory = await getApplicationDocumentsDirectory();
     var path = join(await getDatabasesPath(), _databaseName);
 
-    var txDB = await openDatabase(path, version: 3, onCreate: _createDB);
+    var txDB = await openDatabase(path, version: 1, onCreate: _createDB);
 
     return txDB;
   }
