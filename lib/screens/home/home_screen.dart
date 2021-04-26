@@ -1,10 +1,11 @@
 import 'package:cryptoo/core/constants/theme.dart';
+import 'package:cryptoo/core/manager/cryptolist/crypto_list_manager.dart';
 import 'package:cryptoo/core/models/crypto.model.dart';
-import 'package:cryptoo/core/service/api.dart';
 import 'package:cryptoo/screens/home/widgets/home_screen_card_list.dart';
 import 'package:cryptoo/screens/home/widgets/home_screen_floating_action_button.dart';
 import 'package:cryptoo/screens/home/widgets/home_screen_logo_title.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeSecreen extends StatefulWidget {
   const HomeSecreen({Key key}) : super(key: key);
@@ -15,24 +16,15 @@ class HomeSecreen extends StatefulWidget {
 class _HomeSecreenState extends State<HomeSecreen> {
   List<CryptoModel> cryptoDataList = [];
 
-  getData() async {
-    await getCryptoData().then((value) {
-      cryptoDataList = value;
-
-      setState(() {});
-    });
-  }
-
   @override
   void initState() {
     super.initState();
-    getData();
   }
 
   @override
   Widget build(BuildContext context) {
-    print('home screen ');
-    print(cryptoDataList.length);
+    final cryptoManager = Provider.of<CryptoManager>(context);
+    cryptoDataList = cryptoManager.cryptoItems;
     return Scaffold(
       backgroundColor: ProjectThemes.MAINCOLOR,
       body: SafeArea(

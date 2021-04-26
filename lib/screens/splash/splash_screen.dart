@@ -1,7 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:cryptoo/core/constants/theme.dart';
-import 'package:cryptoo/core/models/crypto.model.dart';
-import 'package:cryptoo/core/service/api.dart';
+
 import 'package:cryptoo/screens/home/home_screen.dart';
 import 'package:cryptoo/screens/splash/widgets/splash_screen_title.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      duration: 8000,
+      duration: 5000,
       splashTransition: SplashTransition.sizeTransition,
       backgroundColor: ProjectThemes.MAINCOLOR,
       splashIconSize: 300,

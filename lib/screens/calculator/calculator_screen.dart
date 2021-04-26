@@ -1,9 +1,12 @@
 import 'package:cryptoo/core/constants/theme.dart';
+import 'package:cryptoo/core/manager/cryptolist/crypto_list_manager.dart';
+import 'package:cryptoo/core/models/crypto.model.dart';
 import 'package:cryptoo/screens/calculator/widgets/calculator_screen_drop_button.dart';
 import 'package:cryptoo/screens/calculator/widgets/calculator_screen_go_back_icon.dart';
 import 'package:cryptoo/screens/calculator/widgets/calculator_screen_textfield.dart';
 import 'package:cryptoo/screens/splash/widgets/splash_screen_title.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CalculatorScreen extends StatefulWidget {
   @override
@@ -13,6 +16,9 @@ class CalculatorScreen extends StatefulWidget {
 class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
+    List<CryptoModel> cryptoDataList = [];
+    final cryptoManager = Provider.of<CryptoManager>(context);
+    cryptoDataList = cryptoManager.cryptoItems;
     return Scaffold(
       backgroundColor: ProjectThemes.MAINCOLOR,
       body: SafeArea(
@@ -34,7 +40,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               Positioned(
                 top: 100,
                 left: 25,
-                child: CalculatorDropdownButton(),
+                child: CalculatorDropdownButton(
+                  cryptoDataList: cryptoDataList,
+                ),
               ),
               Positioned(
                   top: 239,

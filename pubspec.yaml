@@ -17,6 +17,7 @@ dependencies:
   sqflite: ^2.0.0+3
   http: 
   syncfusion_flutter_charts: ^19.1.57+1
+  provider: ^5.0.0
   
 
 
