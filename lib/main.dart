@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (BuildContext context) => SplashScreen(),
-        '/cryptooanlysis': (BuildContext context) => CryptoAnalysisScreen(),
+        '/cryptooanlysis': (BuildContext context) => CryptoAnalysisScreen(
+              cryptoModel: null,
+            ),
         '/home': (BuildContext context) => HomeSecreen(),
         '/calculator': (BuildContext context) => CalculatorScreen(),
       },

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'home_screen_crypto_card.dart';
 
 Widget homePageCardList(datList) {
-  print('home page card list');
-  print(datList.length);
   return ListView.separated(
     itemCount: datList.length,
     separatorBuilder: (BuildContext context, int index) => SizedBox(
@@ -17,10 +15,12 @@ Widget homePageCardList(datList) {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CryptoAnalysisScreen()),
+              MaterialPageRoute(
+                  builder: (context) =>
+                      CryptoAnalysisScreen(cryptoModel: datList[index])),
             );
           },
-          child: cryptooCard(datList[index]),
+          child: cryptooCard(datList[index], Color(0xFFC4C4C4)),
         ),
       );
     },

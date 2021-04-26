@@ -18,8 +18,7 @@ class _HomeSecreenState extends State<HomeSecreen> {
   getData() async {
     await getCryptoData().then((value) {
       cryptoDataList = value;
-      print('splasssssssssssh');
-      print(cryptoDataList.length);
+
       setState(() {});
     });
   }
@@ -42,7 +41,11 @@ class _HomeSecreenState extends State<HomeSecreen> {
           child: Column(
             children: [
               Expanded(flex: 3, child: pageTitleAndLogo()),
-              Expanded(flex: 19, child: homePageCardList(cryptoDataList)),
+              Expanded(
+                  flex: 19,
+                  child: homePageCardList(
+                    cryptoDataList,
+                  )),
               Expanded(flex: 2, child: homePageFloatingActionButton(context))
             ],
           ),

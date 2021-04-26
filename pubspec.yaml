@@ -16,6 +16,7 @@ dependencies:
   google_fonts: ^2.0.0
   sqflite: ^2.0.0+3
   http: 
+  syncfusion_flutter_charts: ^19.1.57+1
   
 
 
