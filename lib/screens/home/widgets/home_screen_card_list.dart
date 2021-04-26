@@ -1,5 +1,6 @@
-import 'package:cryptoo/screens/cryptoanalysis/crypto_analysis_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../cryptoanalysis/crypto_analysis_screen.dart';
 import 'home_screen_crypto_card.dart';
 
 Widget homePageCardList(datList) {

@@ -1,4 +1,4 @@
-import 'package:cryptoo/core/models/crypto.model.dart';
+import '../../../core/models/crypto.model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';

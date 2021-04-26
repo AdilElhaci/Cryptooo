@@ -1,6 +1,6 @@
-import 'package:cryptoo/core/models/crypto.model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/models/crypto.model.dart';
 import 'home_screen_card_content.dart';
 
 Widget cryptooCard(CryptoModel crypto, Color color) {

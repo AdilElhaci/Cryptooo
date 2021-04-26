@@ -15,13 +15,14 @@ Widget buildPaddingCryptooTextField(
         Expanded(
           flex: 3,
           child: TextField(
+              keyboardType: TextInputType.number,
               decoration: new InputDecoration(
-            hintStyle: TextStyle(
-              fontSize: 30,
-            ),
-            border: InputBorder.none,
-            hintText: hitText,
-          )),
+                hintStyle: TextStyle(
+                  fontSize: 30,
+                ),
+                border: InputBorder.none,
+                hintText: hitText,
+              )),
         ),
         Expanded(child: Text(suffixText, style: TextStyle(fontSize: 30)))
       ],

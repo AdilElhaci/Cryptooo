@@ -1,6 +1,7 @@
-import 'package:cryptoo/screens/splash/widgets/splash_screen_logo_widget.dart';
-import 'package:cryptoo/screens/splash/widgets/splash_screen_title.dart';
 import 'package:flutter/material.dart';
+
+import '../../splash/widgets/splash_screen_logo_widget.dart';
+import '../../splash/widgets/splash_screen_title.dart';
 
 Widget pageTitleAndLogo() {
   return Stack(

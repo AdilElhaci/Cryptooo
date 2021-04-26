@@ -1,5 +1,5 @@
-import 'package:cryptoo/core/constants/icons_url.dart';
-import 'package:cryptoo/screens/home/home_screen.dart';
+import '../../../core/constants/icons_url.dart';
+import '../../home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

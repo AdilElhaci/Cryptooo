@@ -1,10 +1,11 @@
-import 'package:cryptoo/core/constants/theme.dart';
-import 'package:cryptoo/core/models/crypto.model.dart';
-import 'package:cryptoo/screens/calculator/widgets/calculator_screen_go_back_icon.dart';
-import 'package:cryptoo/screens/cryptoanalysis/widgets/crypto_analysis_screen_analysis.dart';
-import 'package:cryptoo/screens/home/widgets/home_screen_crypto_card.dart';
-import 'package:cryptoo/screens/splash/widgets/splash_screen_title.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/constants/theme.dart';
+import '../../core/models/crypto.model.dart';
+import '../calculator/widgets/calculator_screen_go_back_icon.dart';
+import '../home/widgets/home_screen_crypto_card.dart';
+import '../splash/widgets/splash_screen_title.dart';
+import 'widgets/crypto_analysis_screen_analysis.dart';
 
 class CryptoAnalysisScreen extends StatefulWidget {
   final CryptoModel cryptoModel;

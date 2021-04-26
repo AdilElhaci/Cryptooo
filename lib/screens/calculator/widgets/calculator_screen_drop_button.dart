@@ -1,5 +1,8 @@
-import 'package:cryptoo/core/models/crypto.model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../core/models/crypto.model.dart';
+import '../../../core/provider/cryptolist/dropdown_value_provider.dart';
 
 class CalculatorDropdownButton extends StatefulWidget {
   final List<CryptoModel> cryptoDataList;
@@ -12,9 +15,20 @@ class CalculatorDropdownButton extends StatefulWidget {
 }
 
 class _CalculatorDropdownButtonState extends State<CalculatorDropdownButton> {
-  String _dropDownValue, selectedValue = 'Select Cryptoo';
+  CryptoModel _dropDownValue;
+  DropdownValueProvider selectedCryptoModel;
+  @override
+  void initState() {
+    super.initState();
+
+    _dropDownValue = widget.cryptoDataList.first;
+    selectedCryptoModel?.setCryptoModel(_dropDownValue);
+  }
+
+  String selectedValue = 'Select Cryptoo';
   @override
   Widget build(BuildContext context) {
+    selectedCryptoModel = Provider.of<DropdownValueProvider>(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(color: Colors.white),
@@ -34,14 +48,15 @@ class _CalculatorDropdownButtonState extends State<CalculatorDropdownButton> {
         value: _dropDownValue,
         onChanged: (value) {
           setState(() {
+            print(value);
             _dropDownValue = value;
             selectedValue = value.name;
           });
-          print(selectedValue);
+          selectedCryptoModel.setCryptoModel(value);
         },
         items: widget.cryptoDataList.map((valueItem) {
           return DropdownMenuItem(
-            value: valueItem.name,
+            value: valueItem,
             child: Text(valueItem.name),
           );
         }).toList(),

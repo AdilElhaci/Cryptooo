@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+
+import 'models/weekly-crpyto.model.dart';
 
 class DatabaseHelper {
   static DatabaseHelper _databaseHelper;

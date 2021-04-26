@@ -1,11 +1,12 @@
-import 'package:cryptoo/core/constants/theme.dart';
-import 'package:cryptoo/core/manager/cryptolist/crypto_list_manager.dart';
-import 'package:cryptoo/core/models/crypto.model.dart';
-import 'package:cryptoo/screens/home/widgets/home_screen_card_list.dart';
-import 'package:cryptoo/screens/home/widgets/home_screen_floating_action_button.dart';
-import 'package:cryptoo/screens/home/widgets/home_screen_logo_title.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../core/constants/theme.dart';
+import '../../core/models/crypto.model.dart';
+import '../../core/provider/cryptolist/crypto_list_manager.dart';
+import 'widgets/home_screen_card_list.dart';
+import 'widgets/home_screen_floating_action_button.dart';
+import 'widgets/home_screen_logo_title.dart';
 
 class HomeSecreen extends StatefulWidget {
   const HomeSecreen({Key key}) : super(key: key);
@@ -24,7 +25,7 @@ class _HomeSecreenState extends State<HomeSecreen> {
   @override
   Widget build(BuildContext context) {
     final cryptoManager = Provider.of<CryptoManager>(context);
-    cryptoDataList = cryptoManager.cryptoItems;
+
     return Scaffold(
       backgroundColor: ProjectThemes.MAINCOLOR,
       body: SafeArea(
@@ -36,7 +37,7 @@ class _HomeSecreenState extends State<HomeSecreen> {
               Expanded(
                   flex: 19,
                   child: homePageCardList(
-                    cryptoDataList,
+                    cryptoManager.cryptoItems,
                   )),
               Expanded(flex: 2, child: homePageFloatingActionButton(context))
             ],

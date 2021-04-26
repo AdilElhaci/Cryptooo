@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:cryptoo/core/models/crypto.model.dart';
 import 'package:http/http.dart' as http;
+
+import '../models/crypto.model.dart';
 
 Future<List<CryptoModel>> getCryptoData() async {
   String url = "https://api.coincap.io/v2/assets";

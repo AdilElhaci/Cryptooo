@@ -1,7 +1,8 @@
-import 'package:cryptoo/core/constants/images.dart';
-import 'package:cryptoo/screens/calculator/calculator_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../../core/constants/images.dart';
+import '../../calculator/calculator_screen.dart';
 
 Widget homePageFloatingActionButton(BuildContext context) {
   return Stack(

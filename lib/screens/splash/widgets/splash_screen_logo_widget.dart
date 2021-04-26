@@ -1,4 +1,4 @@
-import 'package:cryptoo/core/constants/images.dart';
+import '../../../core/constants/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
