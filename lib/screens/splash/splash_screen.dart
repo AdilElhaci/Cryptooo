@@ -1,10 +1,10 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import '../../core/constants/theme.dart';
-
-import '../home/home_screen.dart';
-import 'widgets/splash_screen_title.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/constants/theme.dart';
+import '../home/home_screen.dart';
 import 'widgets/splash_screen_logo_widget.dart';
+import 'widgets/splash_screen_title.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);

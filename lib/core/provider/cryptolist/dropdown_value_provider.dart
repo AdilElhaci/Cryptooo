@@ -1,5 +1,6 @@
-import '../../models/crypto.model.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../../models/crypto.model.dart';
 
 class DropdownValueProvider extends ChangeNotifier {
   CryptoModel selectedCryptoModel;

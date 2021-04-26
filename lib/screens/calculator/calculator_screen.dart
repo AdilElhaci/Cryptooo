@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/constants/theme.dart';
-import '../../core/provider/cryptolist/crypto_list_manager.dart';
+import '../../core/provider/cryptolist/crypto_list_provider.dart';
 import '../../core/provider/cryptolist/dropdown_value_provider.dart';
 import '../splash/widgets/splash_screen_title.dart';
 import 'widgets/calculator_screen_drop_button.dart';
@@ -48,16 +48,21 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               Positioned(
                   top: 239,
                   left: 25,
-                  child: buildPaddingCryptooTextField(context, '0',
-                      selectedCryptoModel.selectedCryptoModel.symbol ?? 'BTC')),
+                  child: buildPaddingCryptooTextField(
+                      context,
+                      '0',
+                      selectedCryptoModel.selectedCryptoModel.symbol ?? 'BTC',
+                      false)),
               Positioned(
                   top: 338,
                   left: 25,
-                  child: buildPaddingCryptooTextField(context, '0', 'USD')),
+                  child:
+                      buildPaddingCryptooTextField(context, '0', 'USD', true)),
               Positioned(
                   top: 440,
                   left: 25,
-                  child: buildPaddingCryptooTextField(context, '0', 'TRY')),
+                  child:
+                      buildPaddingCryptooTextField(context, '0', 'TRY', true)),
             ],
           ),
         ),

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/constants/theme.dart';
 import '../../core/models/crypto.model.dart';
-import '../../core/provider/cryptolist/crypto_list_manager.dart';
+import '../../core/provider/cryptolist/crypto_list_provider.dart';
 import 'widgets/home_screen_card_list.dart';
 import 'widgets/home_screen_floating_action_button.dart';
 import 'widgets/home_screen_logo_title.dart';

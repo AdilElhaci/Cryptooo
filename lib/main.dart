@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'core/provider/cryptolist/crypto_list_manager.dart';
+import 'core/provider/cryptolist/crypto_list_provider.dart';
+import 'core/provider/cryptolist/cypto_textfield_provider.dart';
 import 'core/provider/cryptolist/dropdown_value_provider.dart';
 import 'screens/calculator/calculator_screen.dart';
 import 'screens/cryptoanalysis/crypto_analysis_screen.dart';
@@ -16,6 +17,9 @@ void main() {
       ),
       ChangeNotifierProvider<DropdownValueProvider>(
         create: (context) => DropdownValueProvider(),
+      ),
+      ChangeNotifierProvider<CryptoTextfieldsProvider>(
+        create: (context) => CryptoTextfieldsProvider(),
       )
     ],
     child: MyApp(),
