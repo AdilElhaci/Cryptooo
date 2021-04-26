@@ -12,16 +12,19 @@ class CryptoTextfieldsProvider extends ChangeNotifier {
 
   Future<void> setTextValue(double number) async {
     textValue = number;
+    print(textValue);
     notifyListeners();
   }
 
   Future<void> setUSDValue(double value) async {
     useValue = this.textValue * value;
+    print(useValue);
     notifyListeners();
   }
 
   Future<void> setTRYValue(double value) async {
-    tryValue = this.textValue * value;
+    tryValue = this.textValue * 8 * value;
+    print(tryValue);
     notifyListeners();
   }
 }
