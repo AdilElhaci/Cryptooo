@@ -1,8 +1,12 @@
+import 'package:cryptoo/core/models/crypto.model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class LineSceeen extends StatefulWidget {
+  final CryptoModel cryptoModel;
+
+  const LineSceeen({Key key, this.cryptoModel}) : super(key: key);
   @override
   _LineSceeenState createState() => _LineSceeenState();
 }
@@ -19,6 +23,7 @@ class _LineSceeenState extends State<LineSceeen> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.cryptoModel.priceUsd);
     return Container(
       child: SfCartesianChart(
         title: ChartTitle(text: 'Weekly crypto prices'),
@@ -40,10 +45,9 @@ class _LineSceeenState extends State<LineSceeen> {
 
   List<PriceData> getPriceData() {
     final List<PriceData> chartData = [
-      PriceData(2018, 50),
-      PriceData(2019, 300),
-      PriceData(2020, 100),
-      PriceData(2021, 50),
+      PriceData(2019, 2000),
+      PriceData(2020, 18200),
+      PriceData(2021, widget.cryptoModel.priceUsd),
     ];
     return chartData;
   }
