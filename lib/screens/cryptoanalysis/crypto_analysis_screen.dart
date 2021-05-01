@@ -49,7 +49,10 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
                           child: cryptooCard(widget.cryptoModel, Colors.white)),
                       Expanded(
                         flex: 6,
-                        child: Container(child: LineSceeen()),
+                        child: Container(
+                            child: LineSceeen(
+                          cryptoModel: widget.cryptoModel,
+                        )),
                       )
                     ],
                   ),

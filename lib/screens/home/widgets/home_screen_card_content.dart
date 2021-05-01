@@ -32,7 +32,7 @@ Widget cryptoCardContent(CryptoModel crypto) {
               height: 10,
             ),
             Text(
-              crypto.priceUsd.toInt().toString(),
+              crypto.priceUsd.toInt().toString() + '\$',
               style: GoogleFonts.spaceMono(
                   textStyle: TextStyle(
                 fontSize: 18,
@@ -48,7 +48,7 @@ Widget cryptoCardContent(CryptoModel crypto) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                'assets/icons/decreaseicon.svg',
+                'assets/icons/increaseicon.svg',
               ),
               SizedBox(
                 height: 10,
@@ -58,7 +58,7 @@ Widget cryptoCardContent(CryptoModel crypto) {
                 style: GoogleFonts.spaceMono(
                     textStyle: TextStyle(
                   fontSize: 18,
-                  color: Colors.red,
+                  color: Colors.green,
                 )),
               ),
             ],

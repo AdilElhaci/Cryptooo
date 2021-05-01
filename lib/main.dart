@@ -1,3 +1,4 @@
+import 'package:cryptoo/screens/home/test.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
       title: 'Cryptoo',
       initialRoute: '/',
       routes: {
-        '/': (BuildContext context) => SplashScreen(),
+        '/': (BuildContext context) => TestScreeen(),
         '/cryptooanlysis': (BuildContext context) => CryptoAnalysisScreen(
               cryptoModel: null,
             ),
