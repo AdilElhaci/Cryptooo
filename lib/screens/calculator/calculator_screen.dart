@@ -99,7 +99,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     textProvider.setTRYValue(
                         selectedCryptoModel.selectedCryptoModel.priceUsd);
                     setState(() {
-                      if (value == 0) {
+                      if (value.isEmpty) {
                         textProvider.setTextValue(0);
                         textProvider.setUSDValue(0);
                         textProvider.setTRYValue(0);
