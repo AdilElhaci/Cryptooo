@@ -20,8 +20,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     final cryptoManager = Provider.of<CryptoManager>(context);
-    DropdownValueProvider selectedCryptoModel =
-        Provider.of<DropdownValueProvider>(context);
+    DropdownValueProvider selectedCryptoModel = Provider.of<DropdownValueProvider>(context);
     return Scaffold(
       backgroundColor: ProjectThemes.MAINCOLOR,
       resizeToAvoidBottomInset: false,
@@ -49,21 +48,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.08,
               ),
-              buildPaddingCryptooTextField(
-                  context,
-                  '0',
-                  selectedCryptoModel.selectedCryptoModel.symbol ?? 'BTC',
-                  false),
+              buildPaddingCryptooTextField(context, '0', selectedCryptoModel.selectedCryptoModel.symbol ?? 'BTC', false),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              buildPaddingCryptooTextField(
-                  context, usdValue.toString(), 'USD', true),
+              buildPaddingCryptooTextField(context, usdValue.toStringAsFixed(2), 'USD', true),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              buildPaddingCryptooTextField(
-                  context, tryValue.toString(), 'TRY', true),
+              buildPaddingCryptooTextField(context, tryValue.toStringAsFixed(2), 'TRY', true),
             ],
           ),
         ),
@@ -71,12 +64,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     );
   }
 
-  buildPaddingCryptooTextField(BuildContext context, String hitText,
-      String suffixText, bool justDisplay) {
-    CryptoTextfieldsProvider textProvider =
-        Provider.of<CryptoTextfieldsProvider>(context);
-    DropdownValueProvider selectedCryptoModel =
-        Provider.of<DropdownValueProvider>(context);
+  buildPaddingCryptooTextField(BuildContext context, String hitText, String suffixText, bool justDisplay) {
+    CryptoTextfieldsProvider textProvider = Provider.of<CryptoTextfieldsProvider>(context);
+    DropdownValueProvider selectedCryptoModel = Provider.of<DropdownValueProvider>(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
       width: MediaQuery.of(context).size.width * 0.9,
@@ -94,10 +84,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                 onChanged: (value) {
                   if (justDisplay == false) {
                     textProvider.setTextValue(double.parse(value.toString()));
-                    textProvider.setUSDValue(
-                        selectedCryptoModel.selectedCryptoModel.priceUsd);
-                    textProvider.setTRYValue(
-                        selectedCryptoModel.selectedCryptoModel.priceUsd);
+                    textProvider.setUSDValue(selectedCryptoModel.selectedCryptoModel.priceUsd);
+                    textProvider.setTRYValue(selectedCryptoModel.selectedCryptoModel.priceUsd);
                     setState(() {
                       if (value.isEmpty) {
                         textProvider.setTextValue(0);

@@ -14,7 +14,7 @@ dependencies:
   flutter_svg: ^0.19.3
   animated_splash_screen: ^1.1.0
   google_fonts: ^2.0.0
-  sqflite: ^2.0.0+3
+  sqflite: ^1.2.0
   http: 
   syncfusion_flutter_charts: ^19.1.57+1
   provider: ^5.0.0

@@ -17,16 +17,12 @@ class HomeSecreen extends StatefulWidget {
 
 class _HomeSecreenState extends State<HomeSecreen> {
   List<CryptoModel> cryptoDataList = [];
+  var db = DatabaseHelper();
 
   @override
   void initState() {
     super.initState();
-
-    openDatabase();
-  }
-
-  Future<void> openDatabase() async {
-    // await DatabaseHelper.internal().database;
+    DatabaseHelper().getDatabase();
   }
 
   @override
