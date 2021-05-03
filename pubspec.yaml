@@ -18,6 +18,7 @@ dependencies:
   http: 
   syncfusion_flutter_charts: ^19.1.57+1
   provider: ^5.0.0
+  path_provider: ^2.0.1
   
 
 

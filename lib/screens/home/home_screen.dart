@@ -1,3 +1,4 @@
+import 'package:cryptoo/core/database-helper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,16 +17,16 @@ class HomeSecreen extends StatefulWidget {
 
 class _HomeSecreenState extends State<HomeSecreen> {
   List<CryptoModel> cryptoDataList = [];
-  // DatabaseHelper databaseHelper;
+
   @override
   void initState() {
     super.initState();
-    // databaseHelper = DatabaseHelper();
+
     openDatabase();
   }
 
   Future<void> openDatabase() async {
-    // await databaseHelper.getDatabase();
+    // await DatabaseHelper.internal().database;
   }
 
   @override
