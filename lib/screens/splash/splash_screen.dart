@@ -5,6 +5,7 @@ import '../../core/constants/theme.dart';
 import '../home/home_screen.dart';
 import 'widgets/splash_screen_logo_widget.dart';
 import 'widgets/splash_screen_title.dart';
+import 'package:cryptoo/core/database-helper.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);
@@ -15,6 +16,13 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    super.initState();
+
+    DatabaseHelper.instance.getDatabase();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       duration: 5000,
@@ -22,11 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: ProjectThemes.MAINCOLOR,
       splashIconSize: 300,
       splash: Column(
-        children: [
-          pageTitle(48),
-          SizedBox(height: 30),
-          logoContainer(153, 153)
-        ],
+        children: [pageTitle(48), SizedBox(height: 30), logoContainer(153, 153)],
       ),
       nextScreen: HomeSecreen(),
     );
