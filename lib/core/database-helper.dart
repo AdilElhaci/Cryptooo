@@ -83,7 +83,7 @@ class DatabaseHelper {
   static DatabaseHelper _databaseHelper;
   static Database _database;
 
-  static final _databaseName = 'ahi.db';
+  static final _databaseName = 'crypto.db';
 
   static final tableWeeklyCrypto = 'weekly_crypto';
 
