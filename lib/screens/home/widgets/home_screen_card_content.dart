@@ -5,6 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../core/models/crypto.model.dart';
 
 Widget cryptoCardContent(CryptoModel crypto) {
+  print('//////////////////');
+  print(crypto.symbol);
+  print('//////////////////');
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
