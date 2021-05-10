@@ -16,9 +16,11 @@ dependencies:
   google_fonts: ^2.0.0
   sqflite: ^1.2.0
   http: 
-  syncfusion_flutter_charts: ^19.1.57+1
+  syncfusion_flutter_charts: any
   provider: ^5.0.0
   path_provider: ^2.0.1
+  intl: ^0.16.0
+  shared_preferences: any
   
 
 

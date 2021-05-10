@@ -82,7 +82,6 @@ import 'package:sqflite/sqflite.dart';
 class DatabaseHelper {
   static DatabaseHelper _databaseHelper;
   static Database _database;
-
   static final _databaseName = 'crypto.db';
 
   static final tableWeeklyCrypto = 'weekly_crypto';
@@ -93,11 +92,14 @@ class DatabaseHelper {
   static final columnDate = 'date';
 
 //for Singleton
-  DatabaseHelper._internal();
+
+  DatabaseHelper._privateConstructor();
+  static DatabaseHelper get instance => _instance;
+  static final DatabaseHelper _instance = DatabaseHelper._privateConstructor();
 
   factory DatabaseHelper() {
     if (_databaseHelper == null) {
-      return _databaseHelper = DatabaseHelper._internal();
+      return _databaseHelper = DatabaseHelper._privateConstructor();
     } else {
       return _databaseHelper;
     }
@@ -113,6 +115,9 @@ class DatabaseHelper {
         _database = await _initialDatabase();
       }
     }
+    print('/////////////////');
+    print('Successfuly');
+    print('/////////////////');
 
     return _database;
   }

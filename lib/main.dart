@@ -4,12 +4,18 @@ import 'package:provider/provider.dart';
 import 'core/provider/cryptolist/crypto_list_provider.dart';
 import 'core/provider/cryptolist/cypto_textfield_provider.dart';
 import 'core/provider/cryptolist/dropdown_value_provider.dart';
+import 'core/service/shared_preferances.dart';
 import 'screens/calculator/calculator_screen.dart';
 import 'screens/cryptoanalysis/crypto_analysis_screen.dart';
 import 'screens/home/home_screen.dart';
 import 'screens/splash/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  bool dataStatus = await SharedService().getStatus();
+  SharedService().setCurrentDate('2021-10-05');
+
+  dataStatus = dataStatus == null ? false : dataStatus;
+
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider<CryptoManager>(

@@ -1,3 +1,5 @@
+import 'package:cryptoo/core/database-helper.dart';
+import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/constants/theme.dart';
@@ -10,13 +12,19 @@ import 'widgets/crypto_analysis_screen_analysis.dart';
 class CryptoAnalysisScreen extends StatefulWidget {
   final CryptoModel cryptoModel;
 
-  const CryptoAnalysisScreen({Key key, @required this.cryptoModel})
-      : super(key: key);
+  const CryptoAnalysisScreen({Key key, @required this.cryptoModel}) : super(key: key);
   @override
   _CryptoAnalysisScreenState createState() => _CryptoAnalysisScreenState();
 }
 
 class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    testAddCrypto();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +33,7 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 20),
           child: Stack(children: [
-            Positioned(
-                left: 10,
-                child: Container(
-                    width: 60, height: 60, child: goToHomeScreenIcon(context))),
+            Positioned(left: 10, child: Container(width: 60, height: 60, child: goToHomeScreenIcon(context))),
             Positioned(
               left: 83,
               child: pageTitle(36),
@@ -39,14 +44,10 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
                 child: Container(
                   height: 500,
                   width: 400,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Colors.white),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.white),
                   child: Column(
                     children: [
-                      Expanded(
-                          flex: 3,
-                          child: cryptooCard(widget.cryptoModel, Colors.white)),
+                      Expanded(flex: 3, child: cryptooCard(widget.cryptoModel, Colors.white)),
                       Expanded(
                         flex: 6,
                         child: Container(
@@ -61,5 +62,13 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> testAddCrypto() async {
+    WeeklyCryptoModel model = WeeklyCryptoModel(symbol: 'test', price: 2010, date: '2021-05-11');
+    //var result = await DatabaseHelper.instance.addCrypto(model);
+    //print(result);
+    var list = await DatabaseHelper.instance.allData();
+    print(list);
   }
 }
