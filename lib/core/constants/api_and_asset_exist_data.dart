@@ -334,7 +334,7 @@ class CryptoAssetArray {
       'ZEIT',
       'ZEIT-alt',
       'ZRX',
-      'ZRX-alt',
+      'ZRX-alt'
     ];
   }
 }

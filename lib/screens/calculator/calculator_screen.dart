@@ -1,9 +1,9 @@
-import 'package:cryptoo/core/provider/cryptolist/cypto_textfield_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/constants/theme.dart';
 import '../../core/provider/cryptolist/crypto_list_provider.dart';
+import '../../core/provider/cryptolist/cypto_textfield_provider.dart';
 import '../../core/provider/cryptolist/dropdown_value_provider.dart';
 import '../splash/widgets/splash_screen_title.dart';
 import 'widgets/calculator_screen_drop_button.dart';

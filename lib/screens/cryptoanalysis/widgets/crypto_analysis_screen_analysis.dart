@@ -1,7 +1,8 @@
-import 'package:cryptoo/core/models/crypto.model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+
+import '../../../core/models/crypto.model.dart';
 
 class LineSceeen extends StatefulWidget {
   final CryptoModel cryptoModel;
@@ -37,8 +38,7 @@ class _LineSceeenState extends State<LineSceeen> {
               enableTooltip: true)
         ],
         primaryXAxis: NumericAxis(edgeLabelPlacement: EdgeLabelPlacement.shift),
-        primaryYAxis: NumericAxis(
-            numberFormat: NumberFormat.simpleCurrency(decimalDigits: 0)),
+        primaryYAxis: NumericAxis(numberFormat: NumberFormat.simpleCurrency(decimalDigits: 0)),
       ),
     );
   }
