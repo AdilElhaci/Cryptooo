@@ -30,7 +30,6 @@ class SharedService {
 
     if (!storedDate.contains(currentDate)) {
       cryptoItems = await getCryptoData();
-
       for (var item in cryptoItems) {
         WeeklyCryptoModel model = WeeklyCryptoModel(symbol: item.symbol, price: item.priceUsd, date: currentDate);
         await DatabaseHelper.instance.addCrypto(model);
