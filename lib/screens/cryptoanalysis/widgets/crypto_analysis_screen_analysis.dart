@@ -1,3 +1,4 @@
+import 'package:cryptoo/core/database-helper.dart';
 import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -15,13 +16,14 @@ class LineSceeen extends StatefulWidget {
 }
 
 class _LineSceeenState extends State<LineSceeen> {
-  List<PriceData> _chartList;
+  List<WeeklyCryptoModel> _chartList;
+  List<PriceData> _pricesData;
   TooltipBehavior _tooltipBehavior;
   @override
   void initState() {
     super.initState();
     _tooltipBehavior = TooltipBehavior(enable: true);
-    _chartList = getPriceData();
+    getPriceData();
   }
 
   @override
@@ -33,7 +35,7 @@ class _LineSceeenState extends State<LineSceeen> {
         tooltipBehavior: _tooltipBehavior,
         series: <ChartSeries>[
           LineSeries<PriceData, double>(
-              dataSource: _chartList,
+              dataSource: _pricesData,
               xValueMapper: (PriceData price, _) => price.year,
               yValueMapper: (PriceData price, _) => price.price,
               dataLabelSettings: DataLabelSettings(isVisible: true),
@@ -45,13 +47,13 @@ class _LineSceeenState extends State<LineSceeen> {
     );
   }
 
-  List<PriceData> getPriceData() {
-    final List<PriceData> chartData = [
-      PriceData(2019, 2000),
-      PriceData(2020, 18200),
-      PriceData(2021, widget.cryptoModel.priceUsd),
-    ];
-    return chartData;
+  Future<List<PriceData>> getPriceData() async {
+    _chartList = await DatabaseHelper.instance.getCryptoPrices(widget.cryptoModel.symbol).then((value) {
+      for (var i = 0; i < _chartList.length; i++) {
+        PriceData model = PriceData(i.toDouble(), _chartList[i].price);
+        _pricesData.add(model);
+      }
+    });
   }
 }
 

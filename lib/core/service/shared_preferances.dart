@@ -39,9 +39,4 @@ class SharedService {
       setCurrentDate(currentDate);
     }
   }
-
-  setDataStatus(bool current) async {
-    SharedPreferences myShared = await getShared();
-    await myShared.setBool('hasUpdate', current);
-  }
 }

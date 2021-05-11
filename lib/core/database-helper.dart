@@ -35,7 +35,6 @@ class DatabaseHelper {
 
   Future<Database> getDatabase() async {
     if (_database != null) {
-      print('/////////////data base mevcut///////////');
       return _database;
     }
 
@@ -44,7 +43,6 @@ class DatabaseHelper {
   }
 
   Future<Database> _initialDatabase() async {
-    print('CCCCCCCCCCCCEEEEEEEEEAAAAAAAATTTTTTTTTTEEED');
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     var path = join(documentsDirectory.path, _databaseName);
     var txDB = await openDatabase(path, version: 1, onCreate: _createDB);
@@ -87,10 +85,10 @@ class DatabaseHelper {
 
     List<Map> maps = await db.query(tableWeeklyCrypto, where: '$columnSymbol = ?', whereArgs: [symbol], orderBy: '$columnId DESC');
     List<WeeklyCryptoModel> list = [];
-    if (maps.length > 0) {
-      for (var i = 0; i < maps.length; i++) {
-        list.add(WeeklyCryptoModel.fromJson(maps[i]));
-      }
+
+    for (var i = 0; i < maps.length; i++) {
+      print(WeeklyCryptoModel.fromJson(maps[i]).price);
+      list.add(WeeklyCryptoModel.fromJson(maps[i]));
     }
 
     return list;
