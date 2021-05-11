@@ -33,7 +33,7 @@ Widget cryptoCardContent(CryptoModel crypto, bool status) {
               height: 10,
             ),
             Text(
-              crypto.priceUsd.toInt().toString() + '\$',
+              '\$' + crypto.priceUsd.toInt().toString(),
               style: GoogleFonts.spaceMono(
                   textStyle: TextStyle(
                 fontSize: 18,

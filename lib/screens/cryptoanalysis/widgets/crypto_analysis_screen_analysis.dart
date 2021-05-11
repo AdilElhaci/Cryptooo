@@ -36,10 +36,10 @@ class _LineSceeenState extends State<LineSceeen> {
         title: ChartTitle(text: 'Weekly crypto prices'),
         tooltipBehavior: _tooltipBehavior,
         series: <ChartSeries>[
-          LineSeries<PriceData, String>(
+          LineSeries<PriceData, double>(
               dataSource: _pricesData,
-              xValueMapper: (PriceData price, _) => price.year,
-              yValueMapper: (PriceData price, _) => price.price,
+              xValueMapper: (PriceData model, _) => model.year,
+              yValueMapper: (PriceData model, _) => model.price,
               dataLabelSettings: DataLabelSettings(isVisible: true),
               enableTooltip: true)
         ],
@@ -51,18 +51,21 @@ class _LineSceeenState extends State<LineSceeen> {
 
   Future<List<PriceData>> getPriceData() async {
     _chartList = await DatabaseHelper.instance.getCryptoPrices(widget.cryptoModel.symbol);
-    // for (var i = 0; i < _chartList.length; i++) {
-    PriceData model = PriceData('2021-05-10', 1000);
-    PriceData model1 = PriceData('2021-05-11', 1100);
 
-    _pricesData.add(model);
-    _pricesData.add(model1);
-    // }
+    for (var i = 0; i < _chartList.length; i++) {
+      print(_chartList[i].date);
+      DateTime tempDate = new DateFormat("yyyy-MM-dd").parse(_chartList[i].date);
+      PriceData model = PriceData(tempDate.day.toDouble(), _chartList[i].price);
+
+      setState(() {
+        _pricesData.add(model);
+      });
+    }
   }
 }
 
 class PriceData {
-  final String year;
+  final double year;
   final double price;
   PriceData(this.year, this.price);
 }
