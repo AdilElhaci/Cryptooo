@@ -1,5 +1,3 @@
-import 'package:cryptoo/core/database-helper.dart';
-import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/models/crypto.model.dart';
@@ -17,7 +15,6 @@ class _CryptooCardState extends State<CryptooCard> {
   bool status;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
