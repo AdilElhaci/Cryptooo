@@ -41,7 +41,11 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   getData() async {
+    for (var i = 0; i < 34; i++) {
+      await DatabaseHelper.instance.deleteCrypto(i);
+    }
+
     var list = await DatabaseHelper.instance.allData();
-    print(list.toString());
+    print(list.length);
   }
 }

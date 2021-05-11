@@ -18,6 +18,9 @@ class CryptoAnalysisScreen extends StatefulWidget {
 }
 
 class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
+  List<WeeklyCryptoModel> list;
+  double result, last, previous;
+
   @override
   void initState() {
     super.initState();
@@ -45,12 +48,13 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
                   decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.white),
                   child: Column(
                     children: [
-                      Expanded(flex: 3, child: cryptooCard(widget.cryptoModel, Colors.white)),
+                      Expanded(flex: 3, child: CryptooCard(crypto: widget.cryptoModel, color: Colors.white)),
                       Expanded(
                         flex: 6,
                         child: Container(
                             child: LineSceeen(
                           cryptoModel: widget.cryptoModel,
+                          list: list,
                         )),
                       )
                     ],

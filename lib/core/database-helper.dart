@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
@@ -52,7 +53,7 @@ class DatabaseHelper {
 
   FutureOr _createDB(Database db, int version) async {
     var queryWeeklyCrypto =
-        'CREATE TABLE $tableWeeklyCrypto ($columnId INTEGER PRIMARY KEY AUTOINCREMENT,$columnSymbol TEXT NOT NULL,$columnPrice REAL NOT NULL,$columnDate TEXT NOT NULL)';
+        'CREATE TABLE $tableWeeklyCrypto ($columnId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,$columnSymbol TEXT NOT NULL,$columnPrice REAL NOT NULL,$columnDate TEXT NOT NULL)';
 
     await db.execute(queryWeeklyCrypto);
   }
@@ -66,7 +67,7 @@ class DatabaseHelper {
 
   Future<List<Map<String, dynamic>>> allData() async {
     var db = await getDatabase();
-    var result = db.query(tableWeeklyCrypto, orderBy: '$columnId DESC');
+    var result = db.query(tableWeeklyCrypto, orderBy: '$columnId ASC');
     return result;
   }
 
@@ -79,5 +80,19 @@ class DatabaseHelper {
   Future<int> deleteCrypto(int id) async {
     var db = await getDatabase();
     return await db.delete(tableWeeklyCrypto, where: '$columnId = ?', whereArgs: [id]);
+  }
+
+  Future<List<WeeklyCryptoModel>> getCryptoPrices(String symbol) async {
+    var db = await getDatabase();
+
+    List<Map> maps = await db.query(tableWeeklyCrypto, where: '$columnSymbol = ?', whereArgs: [symbol], orderBy: '$columnId DESC');
+    List<WeeklyCryptoModel> list = [];
+    if (maps.length > 0) {
+      for (var i = 0; i < maps.length; i++) {
+        list.add(WeeklyCryptoModel.fromJson(maps[i]));
+      }
+    }
+
+    return list;
   }
 }

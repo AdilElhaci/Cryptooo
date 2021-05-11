@@ -16,12 +16,10 @@ Widget homePageCardList(datList) {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      CryptoAnalysisScreen(cryptoModel: datList[index])),
+              MaterialPageRoute(builder: (context) => CryptoAnalysisScreen(cryptoModel: datList[index])),
             );
           },
-          child: cryptooCard(datList[index], Color(0xFFC4C4C4)),
+          child: CryptooCard(crypto: datList[index], color: Color(0xFFC4C4C4)),
         ),
       );
     },

@@ -277,7 +277,6 @@ class CryptoAssetArray {
     'SYS-alt',
     'TRIG',
     'TRIG-alt',
-    'TRX',
     'TX',
     'TX-alt',
     'UBQ',

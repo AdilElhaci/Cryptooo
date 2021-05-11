@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/models/crypto.model.dart';
 
-Widget cryptoCardContent(CryptoModel crypto) {
+Widget cryptoCardContent(CryptoModel crypto, bool status) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
@@ -48,18 +48,10 @@ Widget cryptoCardContent(CryptoModel crypto) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                'assets/icons/increaseicon.svg',
+                status == true ? 'assets/icons/increaseicon.svg' : 'assets/icons/decreaseicon.svg',
               ),
               SizedBox(
                 height: 10,
-              ),
-              Text(
-                '02,87%',
-                style: GoogleFonts.spaceMono(
-                    textStyle: TextStyle(
-                  fontSize: 18,
-                  color: Colors.green,
-                )),
               ),
             ],
           ))

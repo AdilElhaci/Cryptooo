@@ -1,3 +1,4 @@
+import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -6,8 +7,9 @@ import '../../../core/models/crypto.model.dart';
 
 class LineSceeen extends StatefulWidget {
   final CryptoModel cryptoModel;
+  final List<WeeklyCryptoModel> list;
 
-  const LineSceeen({Key key, this.cryptoModel}) : super(key: key);
+  const LineSceeen({Key key, this.cryptoModel, this.list}) : super(key: key);
   @override
   _LineSceeenState createState() => _LineSceeenState();
 }
