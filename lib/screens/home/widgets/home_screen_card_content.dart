@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../core/models/crypto.model.dart';
 
 Widget cryptoCardContent(CryptoModel crypto, bool status) {
+  print(crypto.changePercent24Hr);
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
@@ -48,7 +49,7 @@ Widget cryptoCardContent(CryptoModel crypto, bool status) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                status == true ? 'assets/icons/increaseicon.svg' : 'assets/icons/decreaseicon.svg',
+                (crypto?.changePercent24Hr ?? 0) >= 0 ? 'assets/icons/increaseicon.svg' : 'assets/icons/decreaseicon.svg',
               ),
               SizedBox(
                 height: 10,

@@ -19,24 +19,11 @@ class _CryptooCardState extends State<CryptooCard> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getCryptoStatus();
-  }
-
-  getCryptoStatus() async {
-    List<WeeklyCryptoModel> list;
-    double result, last, previous;
-    list = await DatabaseHelper.instance.getCryptoPrices(widget.crypto.symbol);
-    last = list[0].price;
-    previous = list[1].price;
-    result = last - previous;
-    if (result > 0) {
-      status = true;
-    }
-    status = false;
   }
 
   @override
   Widget build(BuildContext context) {
+    print(widget.crypto.marketCapUsd);
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(20)),

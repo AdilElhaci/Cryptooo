@@ -18,6 +18,7 @@ Future<List<CryptoModel>> getCryptoData() async {
           id: u['id'],
           name: u['name'],
           rank: u['rank'],
+          changePercent24Hr: double.parse(u['changePercent24Hr']),
           priceUsd: double.parse(u['priceUsd']),
           symbol: u['symbol'],
         );

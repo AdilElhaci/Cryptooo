@@ -29,7 +29,6 @@ class SharedService {
     String currentDate = formatter.format(now);
 
     if (!storedDate.contains(currentDate)) {
-      print('!!');
       cryptoItems = await getCryptoData();
 
       for (var item in cryptoItems) {

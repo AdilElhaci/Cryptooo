@@ -87,7 +87,6 @@ class DatabaseHelper {
     List<WeeklyCryptoModel> list = [];
 
     for (var i = 0; i < maps.length; i++) {
-      print(WeeklyCryptoModel.fromJson(maps[i]).price);
       list.add(WeeklyCryptoModel.fromJson(maps[i]));
     }
 
