@@ -22,7 +22,6 @@ class _HomeSecreenState extends State<HomeSecreen> {
   @override
   void initState() {
     super.initState();
-    DatabaseHelper().getDatabase();
   }
 
   @override

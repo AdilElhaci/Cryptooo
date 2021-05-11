@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
 import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
@@ -10,7 +12,6 @@ class DatabaseHelper {
 
   static final _databaseName = 'crypto.db';
   static final tableWeeklyCrypto = 'weekly_crypto';
-  static final _databaseVersion = 1;
 
   static final columnId = 'id';
   static final columnSymbol = 'symbol';
@@ -32,14 +33,19 @@ class DatabaseHelper {
   }
 
   Future<Database> getDatabase() async {
-    if (_database != null) return _database;
+    if (_database != null) {
+      print('/////////////data base mevcut///////////');
+      return _database;
+    }
 
     _database = await _initialDatabase();
     return _database;
   }
 
   Future<Database> _initialDatabase() async {
-    var path = join(await getDatabasesPath(), _databaseName);
+    print('CCCCCCCCCCCCEEEEEEEEEAAAAAAAATTTTTTTTTTEEED');
+    Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    var path = join(documentsDirectory.path, _databaseName);
     var txDB = await openDatabase(path, version: 1, onCreate: _createDB);
     return txDB;
   }
@@ -53,6 +59,7 @@ class DatabaseHelper {
 
   Future<int> addCrypto(WeeklyCryptoModel item) async {
     var db = await getDatabase();
+
     var result = db.insert(tableWeeklyCrypto, item.toJson());
     return result;
   }

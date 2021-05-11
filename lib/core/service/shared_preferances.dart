@@ -27,14 +27,17 @@ class SharedService {
     var now = new DateTime.now();
     var formatter = new DateFormat('yyyy-MM-dd');
     String currentDate = formatter.format(now);
-
+    int _id = 436;
     if (!storedDate.contains(currentDate)) {
       print('!!');
       cryptoItems = await getCryptoData();
+
+      print('/////////////////');
       for (var item in cryptoItems) {
         WeeklyCryptoModel model = WeeklyCryptoModel(symbol: item.symbol, price: item.priceUsd, date: currentDate);
         await DatabaseHelper.instance.addCrypto(model);
       }
+
       // setCurrentDate(currentDate);
     }
   }
