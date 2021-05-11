@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:cryptoo/core/database-helper.dart';
 import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
 import 'package:flutter/material.dart';
