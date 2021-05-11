@@ -10,6 +10,7 @@ class CryptoManager extends ChangeNotifier {
   }
   Future<void> pushCrypToThisList() async {
     cryptoItems = await getCryptoData();
+
     notifyListeners();
   }
 }

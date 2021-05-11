@@ -1,5 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:cryptoo/core/models/weekly-crpyto.model.dart';
+import 'package:cryptoo/core/provider/cryptolist/crypto_list_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/constants/theme.dart';
 import '../home/home_screen.dart';
@@ -19,11 +22,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    DatabaseHelper.instance.getDatabase();
+    getData();
   }
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<CryptoManager>(context);
     return AnimatedSplashScreen(
       duration: 5000,
       splashTransition: SplashTransition.sizeTransition,
@@ -34,5 +38,10 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       nextScreen: HomeSecreen(),
     );
+  }
+
+  getData() async {
+    var list = await DatabaseHelper.instance.allData();
+    print(list.toString());
   }
 }

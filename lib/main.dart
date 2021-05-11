@@ -11,10 +11,9 @@ import 'screens/home/home_screen.dart';
 import 'screens/splash/splash_screen.dart';
 
 Future<void> main() async {
-  bool dataStatus = await SharedService().getStatus();
-  SharedService().setCurrentDate('2021-10-05');
+  WidgetsFlutterBinding.ensureInitialized();
 
-  dataStatus = dataStatus == null ? false : dataStatus;
+  await SharedService().getDataStatus();
 
   runApp(MultiProvider(
     providers: [

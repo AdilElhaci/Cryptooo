@@ -21,8 +21,6 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
   @override
   void initState() {
     super.initState();
-
-    testAddCrypto();
   }
 
   @override
@@ -62,13 +60,5 @@ class _CryptoAnalysisScreenState extends State<CryptoAnalysisScreen> {
         ),
       ),
     );
-  }
-
-  Future<void> testAddCrypto() async {
-    WeeklyCryptoModel model = WeeklyCryptoModel(symbol: 'test', price: 2010, date: '2021-05-11');
-    //var result = await DatabaseHelper.instance.addCrypto(model);
-    //print(result);
-    var list = await DatabaseHelper.instance.allData();
-    print(list);
   }
 }
